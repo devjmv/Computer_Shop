@@ -55,4 +55,8 @@ public class Store {
     public List<Computer> listComputers() {
         return new ArrayList<>(computers);
     }
+
+    public boolean removeComputer(String brand) {
+        return computers.removeIf(c -> c.getBrand().equalsIgnoreCase(brand));
+    }
 }
