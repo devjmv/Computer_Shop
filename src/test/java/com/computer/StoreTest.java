@@ -2,6 +2,7 @@ package com.computer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -78,5 +79,13 @@ public class StoreTest {
         assertTrue(store.removeComputer("Lenovo"));
         assertEquals(1, store.listComputers().size());
         assertFalse(store.listComputers().contains(computer1));
+    }
+
+    @Test
+    void testFindComputer() {
+        store.addComputer(computer1);
+        store.addComputer(computer2);
+        assertEquals(computer2, store.findComputer("HP"));
+        assertNull(store.findComputer("Razer"));
     }
 }

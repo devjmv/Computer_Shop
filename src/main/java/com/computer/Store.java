@@ -59,4 +59,11 @@ public class Store {
     public boolean removeComputer(String brand) {
         return computers.removeIf(c -> c.getBrand().equalsIgnoreCase(brand));
     }
+
+    public Computer findComputer(String brand) {
+        return computers.stream()
+                .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                .findFirst()
+                .orElse(null);
+    }
 }
