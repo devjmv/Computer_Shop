@@ -1,10 +1,20 @@
 package com.computer;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Store {
     private String name;
     private String owner;
     private String taxId;
+    private List<Computer> computers;
+
+    public Store(String name, String owner, String taxId, List<Computer> computers) {
+        this.name = name;
+        this.owner = owner;
+        this.taxId = taxId;
+        this.computers = new ArrayList<>(computers);
+    }
 
     public String getName() {
         return name;
@@ -30,10 +40,19 @@ public class Store {
         this.taxId = taxId;
     }
 
-    public Store(String name, String owner, String taxId) {
-        this.name = name;
-        this.owner = owner;
-        this.taxId = taxId;
+    public List<Computer> getComputers() {
+        return computers;
     }
 
+    public void setComputers(List<Computer> computers) {
+        this.computers = computers;
+    }
+
+    public void addComputer(Computer computer) {
+        computers.add(computer);
+    }
+
+    public List<Computer> listComputers() {
+        return new ArrayList<>(computers);
+    }
 }
