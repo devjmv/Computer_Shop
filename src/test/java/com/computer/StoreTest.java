@@ -88,4 +88,14 @@ public class StoreTest {
         assertEquals(computer2, store.findComputer("HP"));
         assertNull(store.findComputer("Razer"));
     }
+
+    @Test
+    void testListComputer() {
+        store.addComputer(computer1);
+        store.addComputer(computer2);
+        List<Computer> computerList = store.listComputers();
+        assertEquals(2, computerList.size());
+        assertTrue(computerList.contains(computer1));
+        assertTrue(computerList.contains(computer2));
+    }
 }
